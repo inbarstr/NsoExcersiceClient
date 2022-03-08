@@ -141,7 +141,7 @@ class TestGetMessages(TestCase):
         get_response = requests.get(WebConfigurations.Url() + 'GetMessage?')
 
         # Assert
-        self.assertEqual(get_response.status_code, 500)
+        self.assertEqual(get_response.status_code, 400)
 
         print("test_get_message_without_parameters ended")
 
@@ -152,7 +152,7 @@ class TestGetMessages(TestCase):
         get_response = requests.get(WebConfigurations.Url() + 'GetMessage?applicationId=1000&sessionId=1000')
 
         # Assert
-        self.assertEqual(get_response.status_code, 500)
+        self.assertEqual(get_response.status_code, 400)
 
         print("test_get_message_without_parameters ended")
 
@@ -163,6 +163,6 @@ class TestGetMessages(TestCase):
         get_response = requests.get(WebConfigurations.Url() + 'GetMessage?msgId=1000')
 
         # Assert
-        self.assertEqual(get_response.status_code, 500)
+        self.assertEqual(get_response.status_code, 400)
 
         print("test_get_message_with_spelling_mistake_parameters ended")

@@ -49,7 +49,7 @@ class TestAddMessage(TestCase):
         add_response = requests.post(WebConfigurations.Url() + "AddMessage", json=message1.to_dictionary())
 
         # Assert
-        self.assertEqual(add_response.status_code, 404)
+        self.assertEqual(add_response.status_code, 409)
         self.assertIn('message_id = m1000 already exist', add_response.text)
 
         print("test_add_message_message_already_exist ended")
@@ -61,6 +61,6 @@ class TestAddMessage(TestCase):
         add_response = requests.post(WebConfigurations.Url() + "AddMessage")
 
         # Assert
-        self.assertEqual(add_response.status_code, 500)
+        self.assertEqual(add_response.status_code, 400)
 
         print("test_add_message_without_body ended")

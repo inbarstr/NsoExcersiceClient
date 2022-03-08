@@ -125,7 +125,7 @@ class TestDeleteMessages(TestCase):
         delete_response = requests.delete(WebConfigurations.Url() + 'DeleteMessage?')
 
         # Assert
-        self.assertEqual(delete_response.status_code, 500)
+        self.assertEqual(delete_response.status_code, 400)
 
         print("test_delete_message_without_parameters ended")
 
@@ -136,7 +136,7 @@ class TestDeleteMessages(TestCase):
         get_response = requests.delete(WebConfigurations.Url() + 'DeleteMessage?sessionId=1000&messageId=1000')
 
         # Assert
-        self.assertEqual(get_response.status_code, 500)
+        self.assertEqual(get_response.status_code, 400)
 
         print("test_delete_message_with_too_many_parameters ended")
 
@@ -147,6 +147,6 @@ class TestDeleteMessages(TestCase):
         get_response = requests.delete(WebConfigurations.Url() + 'DeleteMessage?appId=1000')
 
         # Assert
-        self.assertEqual(get_response.status_code, 500)
+        self.assertEqual(get_response.status_code, 400)
 
         print("test_delete_message_with_spelling_mistake_parameters ended")
